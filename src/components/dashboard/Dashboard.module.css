@@ -1,0 +1,10 @@
+.mapComponent {
+    padding: 15px;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.kpiSection {
+    margin: 20px
+}
