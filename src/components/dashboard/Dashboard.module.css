@@ -1,0 +1,38 @@
+.kpiContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  padding: 1.5rem;
+}
+
+.kpicard {
+  background-color: rgb(26, 12, 37);
+  width: auto;
+  height: auto;
+  box-shadow: 0px 7px 4px 0px rgba(169, 169, 169, 0.19);
+  color: #ffffff;
+  padding: 3rem;
+}
+.contentarea {
+  padding-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.appheader {
+  background-color: #332f2f;
+  color: yellow;
+  padding: 1.5rem;
+  display: flex;
+}
+
+.headertext{
+  color: yellow;
+  text-decoration: none;
+}
+.dashboardpage{
+background-color: #f9f5f5;
+}
+
+.spacer {
+  flex-grow: 1;
+}

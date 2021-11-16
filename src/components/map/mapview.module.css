@@ -1,0 +1,91 @@
+.appheader {
+  background-color: #332f2f;
+  color: yellow;
+  padding: 1.5rem;
+  display: flex;
+}
+.spacer {
+  flex-grow: 1;
+}
+
+.headertext {
+  color: yellow;
+  text-decoration: none;
+}
+
+.countrypointer {
+  border: #f6f6fa;
+  border-width: 3px;
+  border-radius: 20.5px;
+  background-color: #35a4e8;
+  /* width: 25px;
+  height: 25px; */
+  color: #ffffff;
+  font-size: 14px;
+  /* letter-spacing: 0; */
+  /* line-height: 12px; */
+  cursor: pointer;
+  width: fit-content;
+  padding: 10px;
+}
+
+.mapComponent {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.videoComponent {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+.AssetComponent {
+  width: 30%;
+  /* background-color: antiquewhite; */
+  margin: 0 15px 0 0;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  color: #787878;
+  font-weight: 600;
+}
+.videotag {
+  /* width: 100%; */
+  height: 100%;
+  border: 1px solid #787878;
+}
+
+.ImagePane {
+  height: 200px;
+  margin: 2px;
+  border: 1px solid #787878;
+}
+
+.imageTag{
+height: 190px;
+width: 32.5%;
+padding: 5px
+}
+
+.screenshotcontrols {
+  width: fit-content;
+  position: absolute;
+  background: #f7f7f7;
+  padding: 15px;
+
+  width: fit-content;
+  position: absolute;
+  background: #787878;
+  padding: 5px;
+  /* border-radius: 10px; */
+  left: 180px;
+  top: 70px;
+}
+
+.screenshotbtn {
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+

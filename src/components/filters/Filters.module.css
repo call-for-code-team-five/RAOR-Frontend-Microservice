@@ -1,0 +1,20 @@
+.filterspane {
+    width: 30%;
+    /* background-color: antiquewhite; */
+    margin: 0 15px 0 0;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    color: #787878;
+    font-weight: 600;
+}
+
+.filter {
+    margin: 10px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown {
+    height: 50px
+}
