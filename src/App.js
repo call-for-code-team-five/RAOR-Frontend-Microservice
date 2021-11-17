@@ -44,9 +44,16 @@ const App = (props) => {
   
         console.log("AppID initialized")
   
-        const { accessToken } = await appID.silentSignin();
+        try {
         
-        props.dispatch({ type: "accesstoken", accesstoken: accessToken });
+          const { accessToken } = await appID.silentSignin();
+          
+          props.dispatch({ type: "accesstoken", accesstoken: accessToken });
+        } catch (e) {
+          setErrorState(true);
+          setLoginButtonDisplayState(true);
+          setWelcomeDisplayState(false);
+        }
       }
       
       appIDIntialize()
