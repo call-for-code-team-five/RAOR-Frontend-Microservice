@@ -8,11 +8,13 @@ import Overlay from "ol/Overlay";
 import styles from "./mapview.module.css";
 // import {fromLonLat} from 'ol/proj';
 import * as olProj from "ol/proj";
+import { connect } from "react-redux";
 
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
-let token = process.env.AUTHENTICATION_TOKEN;
+// let token = process.env.AUTHENTICATION_TOKEN;
 
-const Map = () => {
+const Map = (props) => {
+  
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const Map = () => {
 
     var myHeaders = new Headers();
 
-    myHeaders.append("Authorization", token);
+    myHeaders.append("Authorization", props.accesstoken);
     var requestOptions = {
       method: "GET",
       headers: myHeaders,
@@ -61,7 +63,7 @@ const Map = () => {
           return [];
         });
       });
-  }, []);
+  }, [props.accesstoken]);
 
   const onclickcountry = (e) => {
     window.location.href = `#/VideoView`;
@@ -85,4 +87,8 @@ const Map = () => {
   );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+  return { ...state.userinfo };
+};
+
+export default connect(mapStateToProps)(Map)

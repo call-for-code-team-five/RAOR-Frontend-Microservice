@@ -51,10 +51,12 @@ class VideoComponent extends Component {
               crossOrigin="anonymous"
               className={styles.videotag}
             >
-              <source
+              {/* <source
                 src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
                 type="video/mp4"
-              ></source>
+              ></source> */}
+
+              <source src = "https://player.vimeo.com/video/490840508?title=0&amp;portrait=0&amp;byline=0&amp;autoplay=1" type = "video/mp4"></source>
             </video>
             <div className={styles.ImagePane}>
               <img
@@ -75,6 +77,8 @@ class VideoComponent extends Component {
             </div>
           </div>
         </div>
+        
+      
       </div>
     );
   }
