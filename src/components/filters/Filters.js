@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./Filters.module.css";
 
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
+let token = process.env.AUTHENTICATION_TOKEN;
 
 class Filters extends Component {
   constructor(props) {
@@ -13,13 +14,14 @@ class Filters extends Component {
     };
   }
   componentDidMount = () => {
+    var myHeaders = new Headers();
+
+    myHeaders.append("Authorization", token);
     var requestOptions = {
       method: "GET",
-      headers: {
-        mode: "cors",
-      },
+      headers: myHeaders,
+      redirect: "follow",
     };
-
     fetch(ServerUrl + "/api/masterData/getCountries", requestOptions)
       .then((response) => response.json())
       .then((json) => {
@@ -60,21 +62,23 @@ class Filters extends Component {
             className={styles.dropdown}
             onChange={this.onClickCountry}
           >
-            {this.state.countries.map((obj, i) => (
+            {/* {this.state.countries.map((obj, i) => (
               <option key={i} value={obj.country_id}>
                 {obj.country_name}
               </option>
-            ))}
+            ))} */}
+            <option>option1</option>
           </select>
         </div>
         <div className={styles.filter}>
           <label>Plant: </label>
           <select id="plantfilter" className={styles.dropdown}>
-            {this.state.plants.map((obj, i) => (
+            {/* {this.state.plants.map((obj, i) => (
               <option key={i} value={obj.plant_id + "_" + obj.country_id}>
                 {obj.plant_name}
               </option>
-            ))}
+            ))} */}
+            <option>option1</option>
           </select>
         </div>
         <br />
