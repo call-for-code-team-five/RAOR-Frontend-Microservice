@@ -2,10 +2,11 @@ import AppID from 'ibmcloud-appid-js'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useMemo } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import Router from './routes/Router';
 
-const App = () => {
+const App = (props) => {
 
   const appID = useMemo(() => {
     return new AppID()
@@ -21,6 +22,8 @@ const App = () => {
     try {
       const tokens = await appID.signin();
 
+      props.dispatch({ type: "accesstoken", accesstoken: tokens.accessToken });
+
       setErrorState(false);
       setLoginButtonDisplayState(false);
       setWelcomeDisplayState(true);
@@ -30,18 +33,23 @@ const App = () => {
     }
   };
 
-  useEffect(async () => {
+  useEffect(() => {
 
     try {
-
-      await appID.init({
-        clientId: '27ecdb6b-6d40-431a-b4e4-1471482ab534',
-        discoveryEndpoint: 'https://eu-gb.appid.cloud.ibm.com/oauth/v4/44516919-34fa-4e47-a1de-9e0462e11af4/.well-known/openid-configuration'
-      });
-
-      console.log("AppID initialized")
-
-      const { accessToken, accessTokenPayload, idToken, idTokenPayload } = await appID.silentSignin();
+      const appIDIntialize = async () => {
+        await appID.init({
+          clientId: '27ecdb6b-6d40-431a-b4e4-1471482ab534',
+          discoveryEndpoint: 'https://eu-gb.appid.cloud.ibm.com/oauth/v4/44516919-34fa-4e47-a1de-9e0462e11af4/.well-known/openid-configuration'
+        });
+  
+        console.log("AppID initialized")
+  
+        const { accessToken } = await appID.silentSignin();
+        
+        props.dispatch({ type: "accesstoken", accesstoken: accessToken });
+      }
+      
+      appIDIntialize()
 
       setErrorState(false);
       setLoginButtonDisplayState(false);
@@ -69,4 +77,9 @@ const App = () => {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { ...state.userinfo };
+};
+
+export default connect(mapStateToProps)(App)
+

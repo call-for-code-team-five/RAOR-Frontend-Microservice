@@ -8,11 +8,13 @@ import Overlay from "ol/Overlay";
 import styles from "./mapview.module.css";
 // import {fromLonLat} from 'ol/proj';
 import * as olProj from "ol/proj";
+import { connect } from "react-redux";
 
-let ServerUrl = process.env.REACT_APP_DESTINATION_URL
+let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
+// let token = process.env.AUTHENTICATION_TOKEN;
 
-
-const Map = () => {
+const Map = (props) => {
+  
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -31,17 +33,16 @@ const Map = () => {
       view: view,
     });
 
+    var myHeaders = new Headers();
+
+    myHeaders.append("Authorization", props.accesstoken);
     var requestOptions = {
       method: "GET",
-      headers: {
-        mode: "cors",
-      },
+      headers: myHeaders,
+      redirect: "follow",
     };
 
-    fetch(
-      ServerUrl + "/api/masterData/getCountries",
-      requestOptions
-    )
+    fetch(ServerUrl + "/api/masterData/getCountries", requestOptions)
       .then((response) => response.json())
       .then((json) => {
         setCountries(json);
@@ -49,11 +50,11 @@ const Map = () => {
           let location = [
             obj.country_coordinates_longitude,
             obj.country_coordinates_latitude,
-          ]
-         let coords = olProj.fromLonLat(location,'EPSG:3857');
-          console.log(coords)
+          ];
+          let coords = olProj.fromLonLat(location, "EPSG:3857");
+          console.log(coords);
           let marker = new Overlay({
-            position:coords,
+            position: coords,
             positioning: "center-center",
             element: document.getElementById("country_" + obj.country_id),
             stopEvent: false,
@@ -61,13 +62,12 @@ const Map = () => {
           map.addOverlay(marker);
           return [];
         });
-      })
-      
-  }, []);
+      });
+  }, [props.accesstoken]);
 
   const onclickcountry = (e) => {
     window.location.href = `#/VideoView`;
-    console.log(e.target.id)
+    console.log(e.target.id);
   };
 
   return (
@@ -87,4 +87,8 @@ const Map = () => {
   );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+  return { ...state.userinfo };
+};
+
+export default connect(mapStateToProps)(Map)
