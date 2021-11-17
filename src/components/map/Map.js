@@ -35,7 +35,7 @@ const Map = (props) => {
 
     var myHeaders = new Headers();
 
-    myHeaders.append("Authorization", props.accesstoken);
+    myHeaders.append("Authorization", "Bearer " + props.accesstoken);
     var requestOptions = {
       method: "GET",
       headers: myHeaders,
