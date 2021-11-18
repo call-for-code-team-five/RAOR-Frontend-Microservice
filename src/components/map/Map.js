@@ -5,7 +5,7 @@ import OSM from "ol/source/OSM";
 import TileLayer from "ol/layer/Tile";
 import olView from "ol/View";
 import Overlay from "ol/Overlay";
-import styles from "./mapview.module.css";
+import styles from "./Mapview.module.css";
 // import {fromLonLat} from 'ol/proj';
 import * as olProj from "ol/proj";
 import { connect } from "react-redux";
@@ -19,8 +19,8 @@ const Map = (props) => {
 
   useEffect(() => {
     let view = new olView({
-      center: [-180, 0],
-      zoom: 0,
+      center: props.center,
+      zoom: props.zoom,
       projection: "EPSG:3857",
     });
     const map = new olMap({
@@ -52,7 +52,7 @@ const Map = (props) => {
             obj.country_coordinates_latitude,
           ];
           let coords = olProj.fromLonLat(location, "EPSG:3857");
-          console.log(coords);
+          
           let marker = new Overlay({
             position: coords,
             positioning: "center-center",
@@ -63,7 +63,7 @@ const Map = (props) => {
           return [];
         });
       });
-  }, [props.accesstoken]);
+  }, []);
 
   const onclickcountry = (e) => {
     window.location.href = `#/VideoView`;
@@ -72,7 +72,8 @@ const Map = (props) => {
 
   return (
     <>
-      <div id="map" class="map"></div>
+      {/* <div id="map" class="map"></div> */}
+      <div id="map" className={styles.mapol}></div>
       {countries.map((obj, i) => {
         return (
           <div
