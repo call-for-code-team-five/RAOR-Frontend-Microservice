@@ -4,17 +4,54 @@
   grid-gap: 1rem;
   padding: 1.5rem;
 }
+.cardheader {
+  font-size: 16px;
+  transition: transform 0.7s;
+}
+.kpisectiontext {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+.kpi {
+  color: #b8b8b8;
+  font-family: EYInterstate;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 19px;
+  margin-left: 1rem;
+  margin-top: 10px
+;
+}
 
+.digits {
+  font-size: 27px;
+  font-weight: 700;
+  padding-left: 1.5rem;
+}
+.kpicardbody {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(45deg, #484743, #2e2e38, #423e53, #384956);
+}
+.cardtitlesection {
+  display: flex;
+  flex-direction: row;
+}
+.spacer {
+  flex-grow: 1;
+}
 .kpicard {
   background-color: rgb(26, 12, 37);
   width: auto;
   height: auto;
   box-shadow: 0px 7px 4px 0px rgba(169, 169, 169, 0.19);
   color: #ffffff;
-  padding: 3rem;
+  padding: 1rem;
 }
 .contentarea {
-  padding-top: 3rem;
+  padding-top: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }

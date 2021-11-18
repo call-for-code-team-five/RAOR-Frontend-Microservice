@@ -18,7 +18,7 @@ class LiveStreamMap extends Component {
     <>
       {/* <div className={styles.appheader}>RAOR</div> */}
       <div className={styles.appheader}>
-       <div> RAOR</div>
+       <div> Incident Monitoring and Responsible Production</div>
        <div className = {styles.spacer}/>
        <div>
        <Link to="/Dashboard" className={styles.headertext}>

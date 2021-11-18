@@ -9,7 +9,7 @@ class Dashboard extends Component {
     return (
       <div className={styles.dashboardpage}>
       <div className={styles.appheader}>
-       <div> RAOR</div>
+       <div> Incident Monitoring and Responsible Production</div>
        <div className = {styles.spacer}/>
        <div>
        <Link to="/Mapview" className={styles.headertext}>

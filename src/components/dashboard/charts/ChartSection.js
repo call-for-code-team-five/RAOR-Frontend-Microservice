@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styles from "./charts.module.css";
-import Chart1 from "./Chart1";
-import Chart2 from "./Chart2";
-import Chart3 from "./Chart3";
-import Chart4 from "./Chart4";
+import TrendAnalysis from "./TrendAnalysis";
+import PlantsbyIncidents from "./plantsbyIncidents";
+import IncidentsType from "./incidentsType";
+import CurrentIncidentReport from "./CurrentIncidentReport";
 
 class ChartSection extends Component {
   constructor(props) {
@@ -14,10 +14,10 @@ class ChartSection extends Component {
   render() {
     return (
       <div className={styles.detailsContainer}>
-        <Chart1 />
-        <Chart2 />
-        <Chart3 />
-        <Chart4 />
+        <TrendAnalysis />
+        <PlantsbyIncidents />
+        <IncidentsType />
+        <CurrentIncidentReport />
       </div>
     );
   }
