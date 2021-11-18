@@ -41,33 +41,7 @@ class Filters extends Component {
         });
       });
 
-    c3.generate({
-      bindto: "#BulkStockAlerts",
-      size: {
-        height: 200,
-        width: 300,
-      },
-      data: {
-        columns: [
-          ["Abu Dabi", 1],
-          ["Saudi Arabia", 6],
-          ["Kuwait", 4],
-          ["Iran", 4],
-          ["Iraq", 7],
-        ],
-        type: "donut",
-
-        // labels: true,
-      },
-      color: {
-        pattern: ["#ede88c", "#93F0E6", "#9C82D4", "#8cc1ed", "#FF9A91"],
-      },
-      donut: {
-        width: 20,
-        title: "Plants (%)",
-      },
-      legend: { show: false },
-    });
+    
   };
 
   onClickCountry = (e) => {
@@ -81,6 +55,10 @@ class Filters extends Component {
       plants: PlantList,
     });
   };
+
+  onApply = () =>{
+    window.location.href = `#/VideoView`;
+  }
 
   render() {
     return (
@@ -101,7 +79,7 @@ class Filters extends Component {
           </select>
         </div>
         <div className={styles.filter}>
-          <label>Select Plant</label>
+          <label>Select Oil Field</label>
           <select id="plantfilter" className={styles.dropdown}>
             {this.state.plants.map((obj, i) => (
               <option key={i} value={obj.plant_id + "_" + obj.country_id}>
@@ -111,7 +89,9 @@ class Filters extends Component {
           </select>
         </div>
         <br />
-        <div id="BulkStockAlerts"></div>
+        <div className={styles.parentDiv}>
+        <div className={styles.applyButton} onClick={this.onApply}>Apply</div>
+        </div>
       </div>
     );
   }

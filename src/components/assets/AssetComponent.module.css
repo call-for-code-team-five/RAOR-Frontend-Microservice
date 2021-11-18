@@ -1,0 +1,44 @@
+.AssetComponent {
+    width: 25%;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    color: #787878;
+    font-weight: 600;
+  }
+
+  .assetHeading {
+    padding: 15px;
+    border-bottom: 1px solid #cccccc;
+    font-size: 17px;
+    color: #5e5a5a;
+  }
+  
+  .assetRow {
+    border: 1px solid #cccccc;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #d8d8d8;
+    padding-left: 10px;
+    height: 5rem;
+    align-items: center;
+  }
+  
+  .assetDigit {
+    border-radius: 50px;
+    width: fit-content;
+    min-height: 15px;
+    max-height: 15px;
+    min-width: 15px;
+    max-width: 15px;
+    color: white;
+    background-color: #747480;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .assettext {
+    padding: 10px;
+  }
