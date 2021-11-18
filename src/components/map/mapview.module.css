@@ -2,7 +2,7 @@
   border: #f6f6fa;
   border-width: 3px;
   border-radius: 20.5px;
-  background-color: #35a4e8;
+  background-color: #2f1c52;
   /* width: 25px;
   height: 25px; */
   color: #ffffff;
@@ -12,11 +12,13 @@
   cursor: pointer;
   width: fit-content;
   padding: 10px;
+  border:2px solid rgb(163 130 12);
 }
 
 .mapComponent {
   display: flex;
   flex-direction: row;
+  height: calc(100vh - 70px);
   /* height: 100vh; */
 }
 
@@ -69,4 +71,55 @@
   width: 2rem;
   cursor: pointer;
 }
+
+.measureTooltipClass {
+  background-color: white;
+  max-height: 30rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index:200;
+}
+
+.plantHeader{
+  padding:15px;
+  border-bottom: 2px solid #cccccc;
+  font-weight: 600;
+  color: #787878;
+  width:100%;
+}
+
+
+.tablePlant {
+  margin: 3px !important;
+}
+
+.tablePlant tr {
+  border-bottom: 1px solid #cccccc;
+}
+.tablePlant td {
+  font-size: 15px;
+  padding: 1rem;
+}
+
+.tablePlant th {
+  padding: 1rem;
+}
+
+.tablePlant td:nth-child(3) {
+  color: #4c82c6;
+  cursor: pointer;
+}
+.PopupData{
+  display: flex;
+}
+.spacer{
+  flex-grow: 1;
+}
+.closebar{
+  cursor: pointer;
+  padding:5px;
+  margin-top:15px;
+  margin-right:15px;
+}
+
 
