@@ -18,7 +18,7 @@
   border: #f6f6fa;
   border-width: 3px;
   border-radius: 20.5px;
-  background-color: #35a4e8;
+  background-color: #2f1c52;
   /* width: 25px;
   height: 25px; */
   color: #ffffff;
@@ -28,6 +28,7 @@
   cursor: pointer;
   width: fit-content;
   padding: 10px;
+  border:2px solid rgb(163 130 12);
 }
 
 .mapComponent {
@@ -127,4 +128,17 @@
 
 .assettext{
   padding:10px;
+}
+
+.measureTooltipClass {
+  background-color: white;
+  max-height: 30rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index:200;
+}
+
+.ol-tooltip-measure {
+  background-color: white;
+  color: white;
 }

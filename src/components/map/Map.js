@@ -8,13 +8,13 @@ import Overlay from "ol/Overlay";
 import styles from "./mapview.module.css";
 // import {fromLonLat} from 'ol/proj';
 import * as olProj from "ol/proj";
-import { connect } from "react-redux";
 
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
-// let token = process.env.AUTHENTICATION_TOKEN;
+let token = process.env.AUTHENTICATION_TOKEN;
+let measureTooltipElement;
 
-const Map = (props) => {
-  
+const Map = () => {
+ 
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Map = (props) => {
       zoom: 0,
       projection: "EPSG:3857",
     });
-    const map = new olMap({
+    let map = new olMap({
       layers: [
         new TileLayer({
           source: new OSM(),
@@ -35,7 +35,7 @@ const Map = (props) => {
 
     var myHeaders = new Headers();
 
-    myHeaders.append("Authorization", "Bearer " + props.accesstoken);
+    myHeaders.append("Authorization", token);
     var requestOptions = {
       method: "GET",
       headers: myHeaders,
@@ -52,7 +52,6 @@ const Map = (props) => {
             obj.country_coordinates_latitude,
           ];
           let coords = olProj.fromLonLat(location, "EPSG:3857");
-          console.log(coords);
           let marker = new Overlay({
             position: coords,
             positioning: "center-center",
@@ -62,11 +61,30 @@ const Map = (props) => {
           map.addOverlay(marker);
           return [];
         });
+        measureTooltipElement = document.createElement("div");
+        measureTooltipElement.className = "ol-tooltip ol-tooltip-measure";
+        let measureTooltip = new Overlay({
+          element: measureTooltipElement,
+          offset: [0, -15],
+          positioning: "bottom-center",
+          stopEvent: false,
+          insertFirst: false,
+        });
+        
+        map.addOverlay(measureTooltip);
       });
-  }, [props.accesstoken]);
+  }, []);
 
   const onclickcountry = (e) => {
-    window.location.href = `#/VideoView`;
+    console.log(measureTooltipElement);
+    measureTooltipElement.className = styles.measureTooltipClass;
+    measureTooltipElement.innerHTML = null;
+    measureTooltipElement.innerHTML +=
+    "<div id=tooltipheader>" +
+    "<div>List Of Requests" +
+    "</div>" +
+    "</div>"
+    // window.location.href = `#/VideoView`;
     console.log(e.target.id);
   };
 
@@ -87,8 +105,4 @@ const Map = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { ...state.userinfo };
-};
-
-export default connect(mapStateToProps)(Map)
+export default Map;
