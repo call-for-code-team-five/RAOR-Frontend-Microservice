@@ -1,0 +1,13 @@
+.ImagePane {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #787878;
+  }
+  
+  .imageTag {
+    height: 190px;
+    width: 100%;
+    padding: 5px;
+  }
