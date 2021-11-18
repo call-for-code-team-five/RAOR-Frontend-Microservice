@@ -55,21 +55,8 @@
   margin-left: 1rem;
   margin-right: 1rem;
 }
-.appheader {
-  background-color: #332f2f;
-  color: yellow;
-  padding: 1.5rem;
-  display: flex;
-}
 
-.headertext{
-  color: yellow;
-  text-decoration: none;
-}
 .dashboardpage{
 background-color: #f9f5f5;
 }
 
-.spacer {
-  flex-grow: 1;
-}

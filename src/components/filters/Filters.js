@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styles from "./Filters.module.css";
+import c3 from "c3";
+import "c3/c3.css";
 
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
 let token = process.env.AUTHENTICATION_TOKEN;
@@ -38,6 +40,8 @@ class Filters extends Component {
           plantList: json,
         });
       });
+
+    
   };
 
   onClickCountry = (e) => {
@@ -52,41 +56,41 @@ class Filters extends Component {
     });
   };
 
+  onApply = () =>{
+    window.location.href = `#/VideoView`;
+  }
+
   render() {
     return (
       <div className={styles.filterspane}>
+        <div className={styles.filtersHeading}>Filters</div>
         <div className={styles.filter}>
-          <label>Country: </label>
+          <label>Select Country</label>
           <select
             id="countryfilter"
             className={styles.dropdown}
             onChange={this.onClickCountry}
           >
-            {/* {this.state.countries.map((obj, i) => (
+            {this.state.countries.map((obj, i) => (
               <option key={i} value={obj.country_id}>
                 {obj.country_name}
               </option>
-            ))} */}
-            <option>option1</option>
+            ))}
           </select>
         </div>
         <div className={styles.filter}>
-          <label>Plant: </label>
+          <label>Select Oil Field</label>
           <select id="plantfilter" className={styles.dropdown}>
-            {/* {this.state.plants.map((obj, i) => (
+            {this.state.plants.map((obj, i) => (
               <option key={i} value={obj.plant_id + "_" + obj.country_id}>
                 {obj.plant_name}
               </option>
-            ))} */}
-            <option>option1</option>
+            ))}
           </select>
         </div>
         <br />
-        <div className={styles.filteredlist}>
-          <label>Assets: </label>
-          <div>Plant 1</div>
-          <div>Plant 2</div>
-          <div>Plant 3</div>
+        <div className={styles.parentDiv}>
+        <div className={styles.applyButton} onClick={this.onApply}>Apply</div>
         </div>
       </div>
     );

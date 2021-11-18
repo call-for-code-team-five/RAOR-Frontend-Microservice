@@ -1,0 +1,15 @@
+.appheader {
+    background-color: #332f2f;
+    color: yellow;
+    padding: 1.5rem;
+    display: flex;
+  }
+  
+  .spacer {
+    flex-grow: 1;
+  }
+  
+  .headertext {
+    color: yellow;
+    text-decoration: none;
+  }

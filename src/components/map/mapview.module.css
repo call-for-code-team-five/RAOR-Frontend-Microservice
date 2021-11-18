@@ -1,24 +1,8 @@
-.appheader {
-  background-color: #332f2f;
-  color: yellow;
-  padding: 1.5rem;
-  display: flex;
-}
-
-.spacer {
-  flex-grow: 1;
-}
-
-.headertext {
-  color: yellow;
-  text-decoration: none;
-}
-
 .countrypointer {
   border: #f6f6fa;
   border-width: 3px;
   border-radius: 20.5px;
-  background-color: #35a4e8;
+  background-color: #2f1c52;
   /* width: 25px;
   height: 25px; */
   color: #ffffff;
@@ -28,49 +12,44 @@
   cursor: pointer;
   width: fit-content;
   padding: 10px;
+  border:2px solid rgb(163 130 12);
 }
 
 .mapComponent {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: calc(100vh - 70px);
+  /* height: 100vh; */
 }
 
-.videoComponent {
+.mapol {
+  width: 100%;
+}
+
+.videoPage {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: fit-content;
+  width: 100%;
 }
 
-.AssetComponent {
-  width: 25%;
-  /* background-color: antiquewhite; */
-  /* margin: 0 15px 0 0; */
-  height: fit-content;
+.VideoSection {
+  width: 74%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  color: #787878;
-  font-weight: 600;
+}
+
+.mapcumvideosection {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .videotag {
-  width: 100%;
-  /* height: 100%; */
+  width: 50%;
+  height: calc(100vh - 290px);
   border: 1px solid #787878;
-}
-
-.ImagePane {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #787878;
-}
-
-.imageTag {
-  height: 190px;
-  width: 100%;
-  padding: 5px;
 }
 
 .screenshotcontrols {
@@ -93,38 +72,54 @@
   cursor: pointer;
 }
 
-.assetHeading{
+.measureTooltipClass {
+  background-color: white;
+  max-height: 30rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index:200;
+}
+
+.plantHeader{
   padding:15px;
+  border-bottom: 2px solid #cccccc;
+  font-weight: 600;
+  color: #787878;
+  width:100%;
+}
+
+
+.tablePlant {
+  margin: 3px !important;
+}
+
+.tablePlant tr {
   border-bottom: 1px solid #cccccc;
-  font-size: 17px;
-  color: #5e5a5a;
+}
+.tablePlant td {
+  font-size: 15px;
+  padding: 1rem;
 }
 
-.assetRow{
-  border: 1px solid #cccccc;
-  display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid #d8d8d8;
-  padding-left: 10px;
-  height: 5rem;
-  align-items: center;
- 
-}
-.assetDigit{
-  border-radius: 50px;
-  width: fit-content;
-  min-height: 15px;
-  max-height: 15px;
-  min-width: 15px;
-  max-width: 15px;
-  color:white;
-  background-color: #747480;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+.tablePlant th {
+  padding: 1rem;
 }
 
-.assettext{
-  padding:10px;
+.tablePlant td:nth-child(3) {
+  color: #4c82c6;
+  cursor: pointer;
 }
+.PopupData{
+  display: flex;
+}
+.spacer{
+  flex-grow: 1;
+}
+.closebar{
+  cursor: pointer;
+  padding:5px;
+  margin-top:15px;
+  margin-right:15px;
+}
+
+
