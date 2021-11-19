@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import styles from "./Filters.module.css";
 import c3 from "c3";
 import "c3/c3.css";
+import { connect } from "react-redux";
 
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
-let token = process.env.AUTHENTICATION_TOKEN;
+// let token = process.env.AUTHENTICATION_TOKEN;
 
 class Filters extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Filters extends Component {
   componentDidMount = () => {
     var myHeaders = new Headers();
 
-    myHeaders.append("Authorization", token);
+    myHeaders.append("Authorization",  "Bearer " + this.props.accesstoken);
     var requestOptions = {
       method: "GET",
       headers: myHeaders,
@@ -96,5 +97,9 @@ class Filters extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return { ...state.userinfo };
+};
 
-export default Filters;
+export default connect(mapStateToProps)(Filters)
+

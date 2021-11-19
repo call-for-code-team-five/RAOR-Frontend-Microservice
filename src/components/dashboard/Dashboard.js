@@ -9,7 +9,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className={styles.dashboardpage}>
-        <Header view="MapView" viewlocation="/Mapview" />
+        <Header view="Map View" viewlocation="/Mapview" />
         <div className={styles.contentarea}>
           <KPISection />
           <ChartSection />

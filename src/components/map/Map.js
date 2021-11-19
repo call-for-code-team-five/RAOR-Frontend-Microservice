@@ -9,8 +9,10 @@ import styles from "./mapview.module.css";
 import * as $ from "jquery";
 import * as olProj from "ol/proj";
 
+import { connect } from "react-redux";
+
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;
-let token = process.env.AUTHENTICATION_TOKEN;
+// let token = process.env.AUTHENTICATION_TOKEN;
 let measureTooltipElement;
 let measureTooltip;
 
@@ -35,7 +37,7 @@ const Map = (props) => {
 
     var myHeaders = new Headers();
 
-    myHeaders.append("Authorization", token);
+    myHeaders.append("Authorization", "Bearer " + props.accesstoken);
     var requestOptions = {
       method: "GET",
       headers: myHeaders,
@@ -80,7 +82,7 @@ const Map = (props) => {
     let plantList;
 
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", token);
+    myHeaders.append("Authorization","Bearer " + props.accesstoken);
     var requestOptions = {
       method: "GET",
       headers: myHeaders,
@@ -171,4 +173,8 @@ const Map = (props) => {
   );
 };
 
-export default Map;
+const mapStateToProps = (state) => {
+  return { ...state.userinfo };
+};
+
+export default connect(mapStateToProps)(Map)

@@ -17,7 +17,7 @@ class VideoComponent extends Component {
     return (
       // <div className={styles.dashboardpage}>
       <>
-        <Header view="MapView" viewlocation="/Mapview" />
+        <Header view="Map View" viewlocation="/Mapview" />
         <div className={styles.videoPage}>
           <AssetComponent />
           <div className={styles.VideoSection}>
