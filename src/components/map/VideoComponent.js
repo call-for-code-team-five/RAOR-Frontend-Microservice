@@ -6,7 +6,7 @@ import Map from "./Map";
 import Header from "../header/Header";
 import AssetComponent from "../assets/AssetComponent";
 import ImagePane from "../imagepane/ImagePane";
-
+import { connect } from "react-redux";
 const serverUrl = process.env.REACT_APP_DESTINATION_URL
 class VideoComponent extends Component {
 
@@ -19,7 +19,7 @@ class VideoComponent extends Component {
       <>
         <Header view="Map View" viewlocation="/Mapview" />
         <div className={styles.videoPage}>
-          <AssetComponent />
+        {this.props.leftPane}
           <div className={styles.VideoSection}>
             <div className={styles.mapcumvideosection}>
               <Map center={[6031603.50349672, 3728918.468280811]} zoom={15} />
@@ -44,4 +44,9 @@ class VideoComponent extends Component {
   }
 }
 
-export default VideoComponent;
+
+const mapStateToProps = (state) => {
+  return { ...state.VideoComponent };
+};
+
+export default connect(mapStateToProps)(VideoComponent)
