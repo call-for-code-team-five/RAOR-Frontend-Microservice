@@ -8,7 +8,6 @@ import Overlay from "ol/Overlay";
 import styles from "./mapview.module.css";
 import * as $ from "jquery";
 import * as olProj from "ol/proj";
-
 import { connect } from "react-redux";
 
 let ServerUrl = process.env.REACT_APP_DESTINATION_URL;

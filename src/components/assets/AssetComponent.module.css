@@ -6,6 +6,10 @@
     color: #787878;
     font-weight: 600;
   }
+  .imagepane {
+  margin: 0.5rem
+;
+  }
 
   .assetHeading {
     padding: 15px;
@@ -23,6 +27,26 @@
     height: 5rem;
     align-items: center;
   }
+  .heading {
+    font-family: EYInterstate;
+    color: grey;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+  .modelDetailstext {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .letpaneRow {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    height: 5rem;
+    align-items: center;
+  }
+  
   
   .assetDigit {
     border-radius: 50px;
