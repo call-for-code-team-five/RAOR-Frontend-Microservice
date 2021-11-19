@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./Mapview.module.css";
+import styles from "./mapview.module.css";
 
 import screenshot from "../../images/screenshot.jpg";
 import Map from "./Map";
