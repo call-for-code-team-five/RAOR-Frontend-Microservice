@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./Mapview.module.css";
+import styles from "./mapview.module.css";
 import Filters from "../filters/Filters";
 import Map from "./Map";
 import Header from "../header/Header";

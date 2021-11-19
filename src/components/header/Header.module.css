@@ -1,6 +1,6 @@
 .appheader {
     background-color: #332f2f;
-    color: yellow;
+    color: cyan;;
     padding: 1.5rem;
     display: flex;
   }
@@ -10,6 +10,6 @@
   }
   
   .headertext {
-    color: yellow;
+    color: cyan;;
     text-decoration: none;
   }

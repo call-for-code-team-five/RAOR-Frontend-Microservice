@@ -5,7 +5,7 @@ import OSM from "ol/source/OSM";
 import TileLayer from "ol/layer/Tile";
 import olView from "ol/View";
 import Overlay from "ol/Overlay";
-import styles from "./Mapview.module.css";
+import styles from "./mapview.module.css";
 import * as $ from "jquery";
 import * as olProj from "ol/proj";
 
