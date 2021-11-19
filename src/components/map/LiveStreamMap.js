@@ -16,7 +16,7 @@ class LiveStreamMap extends Component {
   render() {
     return (
       <>
-        <Header view="DashboardView" viewlocation="/Dashboard" />
+        <Header view="Dashboard View" viewlocation="/Dashboard" />
         <div className={styles.mapComponent}>
           <Filters />
           <Map center={[-180, 0]} zoom={0} />
